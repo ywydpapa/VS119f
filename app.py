@@ -1,7 +1,11 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
+import pandas as pd
+from flask_cors import CORS
+import pickle
 from camera import VideoCamera
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')
@@ -20,6 +24,26 @@ def gen(camera):
 def video_feed():
     return Response(gen(VideoCamera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@app.route('/monmaps')
+def monmap():
+    return render_template('monmap.html')
+
+
+@app.route('/aiobj')
+def aiobj():
+    return render_template('aiobj.html')
+
+
+@app.route('/setsen')
+def setsen():
+    return render_template('setsensor.html')
+
+
+@app.route('/managepage')
+def manpage():
+    return render_template('adminpage.html')
 
 
 if __name__ == '__main__':
