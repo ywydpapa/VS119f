@@ -2,7 +2,7 @@ import pymysql
 
 
 def dbins(query):
-    db = pymysql.connect(host='192.168.108.25', user='swcore', password='core2020', db='vs119f', charset='utf8')
+    db = pymysql.connect(host='192.168.108.102', user='swcore', password='core2020', db='vtekmon', charset='utf8')
     cur = db.cursor()
     cur.execute(query)
     db.commit()
@@ -10,7 +10,7 @@ def dbins(query):
 
 
 def dbsel(query):
-    db = pymysql.connect(host='192.168.108.25', user='swcore', password='core2020', db='vs119f', charset='utf8')
+    db = pymysql.connect(host='192.168.108.102', user='swcore', password='core2020', db='vtekmon', charset='utf8')
     cur = db.cursor()
     cur.execute(query)
     result = cur.fetchall()
@@ -19,7 +19,7 @@ def dbsel(query):
 
 
 def dbupd(query):
-    db = pymysql.connect(host='192.168.108.25', user='swcore', password='core2020', db='vs119f', charset='utf8')
+    db = pymysql.connect(host='192.168.108.102', user='swcore', password='core2020', db='vtekmon', charset='utf8')
     cur = db.cursor()
     cur.execute(query)
     db.commit()
